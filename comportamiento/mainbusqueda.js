@@ -1,5 +1,3 @@
-$(buscar_datos());
-
 function buscar_datos(consulta){
 
 	$.ajax({
@@ -17,9 +15,11 @@ function buscar_datos(consulta){
 }
 $(document).on('keyup','#caja_busqueda',function(){
 	var valor = $(this).val();
-	if(valor != ""){
+	if(valor !== ""){
 		buscar_datos(valor);
 	}else{
 		buscar_datos();
 	}
 });
+
+$(buscar_datos());

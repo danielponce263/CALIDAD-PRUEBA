@@ -1,10 +1,3 @@
-function preguntarSiNo(id_producto){
-
-	alertify.confirm('Eliminar Datos', '¿Está seguro que desea eliminar este registro?', 
-					function(){ eliminarProducto(id_producto) }
-                , function(){ alertify.error("SE CANCELÓ")});
-}
-
 function eliminarProducto(id_producto){
 
 
@@ -15,7 +8,7 @@ function eliminarProducto(id_producto){
 			url:"php/eliminarProducto.php",
 			data:cadena,
 			success:function(r){
-				if(r==1){
+				if(r===1){
 					$('#tabla').load('AdministradorFarmacia.php');
                     alertify.success("ELIMINADO CON ÉXITO");
 				}else{
@@ -24,3 +17,11 @@ function eliminarProducto(id_producto){
 			}
 		});
 }
+
+function preguntarSiNo(id_producto){
+
+	alertify.confirm('Eliminar Datos', '¿Está seguro que desea eliminar este registro?', 
+					function(){ eliminarProducto(id_producto) }
+                , function(){ alertify.error("SE CANCELÓ")});
+}
+
